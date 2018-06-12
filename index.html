@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>RestoTab A Primitive Blockchain Tab Recorder Dapp</title>
+    <style>* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        text-align: center;
+        font-family: "Open sans";
+        color: #333;
+    }
+
+    /***************** NAVBAR *****************/
+    header {
+        background-color: rgba(51, 51, 51, 0.5);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 9999;
+    }
+
+    nav li {
+        display: inline-block;
+        list-style-type: none;
+        padding: 15px 20px;
+        font-weight: bold;
+        color: white;
+    }
+
+    #logo {
+        font-weight: bold;
+        font-family: Pacifico;
+        border: 2px solid white;
+        border-radius: 50%;
+        margin: 5px;
+    }
+
+    #logo:hover {
+        border: 2px solid #f99;
+        color: #f99;
+        border-radius: 50%;
+    }
+
+    /***************** FIN NAVBAR *****************/
+
+    /***************** COVER *****************/
+    #cover {
+        background: url(http://www.exclusivemimarlik.com/wp-content/uploads/2017/05/restaurant.jpeg) no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+        height: 900px;
+        width: 100%;
+    }
+
+    .cover-content {
+        position: relative;
+        top: 25%;
+        width: 60%;
+        margin: 0 auto;
+            color: #ffffff;
+    padding-top: 20px;
+    font-size: 2em;
+    text-shadow: 1px 2px #101010;
+    }
+
+    .cover-content h1 {
+        font-family: Pacifico;
+        font-size: 2em;
+        margin-bottom: -15px;
+    }
+
+    .social-media li {
+        display: inline-block;
+        margin: 2%;
+    }
+
+    .content-portfolio img {
+        width: 100%;
+    }
+
+    .content-portfolio img:hover {
+        border: 2px solid #f99;
+        border-radius: 5px;
+    }
+
+    form {
+        float: left;
+        text-align: left;
+        border-radius: 5px;
+        width: 50%;
+        padding: 5%;
+        background-color: #f99;
+        color: #333;
+        font-weight: bold;
+    }
+
+    form div {
+        padding-bottom: 1em;
+    }
+
+    div input, textarea {
+        width: 100%;
+        border: none;
+        border-radius: 2px;
+        padding: 1em;
+    }
+
+    form div button {
+        margin: 0 auto;
+        width: 100%;
+        padding: 10px 0;
+        border: none;
+        border-radius: 2px;
+        background-color: #333;
+        color: white;
+        font-family: "Open sans";
+        font-weight: bold;
+    }
+
+ 
+
+    /***************** TEXT AND ANCHORS *****************/
+    .title {
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    p {
+        padding-bottom: 5%;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    a:hover {
+        color: #ff9999;
+    }
+
+    @media (max-width: 600px) {
+        .services-content, .content-portfolio {
+            column-count: 1;
+            column-width: 350px;
+        }
+
+        form {
+            width: 280px;
+            float: none; /*???*/
+            margin: 0 auto 5% auto;
+        }
+
+        #contact ul {
+            margin-top: 0;
+        }
+
+        .cover-content {
+            width: 90%;
+            font-size: 1.6em;
+        }
+    }
+
+    .button {
+        border-top: 1px solid #ffffff;
+        background: #FFFFFF;
+        background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#FFFFF));
+        background: -webkit-linear-gradient(top, #ffffff, #ffffff);
+        background: -moz-linear-gradient(top, #d4d4d4, #78848c);
+        background: -ms-linear-gradient(top, #d4d4d4, #78848c);
+        background: -o-linear-gradient(top, #d4d4d4, #78848c);
+        padding: 18.5px 37px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+        -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+        box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+        text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+        color: #0a090a;
+        font-size: 19px;
+        font-family: Georgia, serif;
+        text-decoration: none;
+        vertical-align: middle;
+    }
+
+    .button:hover {
+        border-top-color: #909496;
+        background: #909496;
+        color: #fffcff;
+    }
+
+    .button:active {
+        border-top-color: #b5b5b5;
+        background: #b5b5b5;
+    }
+
+    .input {
+        border: 5px solid silver;
+        -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+        0 0 16px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+        0 0 16px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+        0 0 16px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.5);
+        margin: 0 0 10px 0;
+    }
+
+    .userOrder {
+        color: lightslategray;
+        font-family: "Adobe Hebrew";
+    }
+
+    .userTable {
+        color: darkblue;
+        font-family: "American Typewriter";
+    }
+    </style>
+
+</head>
+
+<body>
+<header>
+    
+</header>
+<div class="container">
+    <section id="cover">
+        <div class="cover-content">
+            <h1>RestoTab</h1>
+            <h3 class="title">A primitive Blockchain Restaurant Tab Recorder....</h3>
+
+            <ul class="social-media">
+                <li>
+                     <label>Enter Orders</label>
+                    <input id="orders" placeholder="Orders (wine, beef burger, t-bone steak)">
+                    <label>Enter Table Number</label>
+                </li>
+
+                <h1></h1>
+
+                <li>
+                    <input id="tableno" placeholder="Table Number #">
+                </li>
+
+            </ul>
+
+            <button onclick="push()" class="button">Place Order</button>
+            <br><br><br><br>
+             <label>Dapp By atillaersoy1994@gmail.com 2018</label><br>
+             <label> Next Version will contain search and billing mechanism. Which will allow users to make micropayments with NAS</label>
+            </li>
+        </div>
+     
+    <script src=nebPay.js></script>
+    <script src=nebulas.js></script>
+
+    <script>
+
+        "use strict";
+
+        var dappAddress = "n1gnoJpfCUqD2QUmgeqF8dmyfxg2tduWvEp";
+
+        var nebulas = require("nebulas"),
+            Account = nebulas.Account,
+            neb = new nebulas.Neb();
+        neb.setRequest(new nebulas.HttpRequest("https://nebulas.io"));
+
+        function search() {
+            var from = Account.NewAccount().getAddressString();
+
+            var value = "0";
+            var nonce = "0";
+            var gas_price = "1000000"
+            var gas_limit = "2000000"
+            var callFunction = "get";
+            var arg = document.getElementById('search_value').value;
+            var callArgs = JSON.stringify([arg]);
+            var contract = {
+                "function": callFunction,
+                "args": callArgs
+            };
+
+            neb.api.call(from, dappAddress, value, nonce, gas_price, gas_limit, contract).then(function (resp) {
+                cbSearch(resp)
+            }).catch(function (err) {
+                //cbSearch(err)
+                console.log("error:" + err.message)
+            })
+        }
+
+       
+        function cbSearch(resp) {
+            var result = resp.result   
+            console.log("return of rpc call: " + JSON.stringify(result))
+
+            var resultString = JSON.stringify(result);
+            if(resultString.search("key") !== -1 && resultString.search("value") !== -1){
+                result = JSON.parse(result)
+
+                console.log(result.value);
+                console.log(result.author);
+
+            }
+            if(resultString.search('"null"') !== -1){
+
+            }
+            if(resultString.search("error") !== -1){
+
+                console.log(result);
+
+            }
+
+        }
+
+        var NebPay = require("nebpay");
+        var nebPay = new NebPay();
+        var serialNumber
+        var callbackUrl = NebPay.config.testnetUrl;
+
+        function push() {
+
+            var to = dappAddress;
+            var value = "0";
+            var callFunction = "save"
+
+            var arg1 = document.getElementById('tableno').value;
+            var arg2 = document.getElementById('orders').value;
+            var callArgs = JSON.stringify([arg1, arg2]);
+
+            serialNumber = nebPay.call(to, value, callFunction, callArgs, {
+                listener: cbPush,
+                callback: callbackUrl
+            });
+
+            intervalQuery = setInterval(function () {
+                funcIntervalQuery();
+            }, 10000);
+        }
+
+        var intervalQuery;
+
+        function funcIntervalQuery() {
+            var options = {
+                callback: callbackUrl
+            };
+            nebPay.queryPayInfo(serialNumber,options)  
+                .then(function (resp) {
+                    console.log("tx result: " + resp)   
+                    var respObject = JSON.parse(resp)
+                    if(respObject.code === 0){
+                        clearInterval(intervalQuery);
+
+
+                    }
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
+
+        function cbPush(resp) {
+            console.log("response of push: " + JSON.stringify(resp))
+            var respString = JSON.stringify(resp);
+            if(respString.search("rejected by user") !== -1){
+                clearInterval(intervalQuery)
+                alert(respString)
+            }else if(respString.search("txhash") !== -1){
+               
+            }
+        }
+
+    </script>
+
+</body>
+</html>
